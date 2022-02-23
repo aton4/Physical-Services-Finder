@@ -1,46 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
-  Text,
-  useColorScheme,
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  SafeAreaView,
+  FlatList
 } from 'react-native';
+import DropDown from './DropDown'
 
-import {
-  Colors,
-  // DebugInstructions,
-  // Header,
-  // LearnMoreLinks,
-  // ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const Navbar = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
+const Navbar = (props:any) => {
+  console.log("asd")
+  const [renderDropDown, setRenderDropDown] = useState(false);
   const showDropDown = () => {
-    console.log("here")
+    console.log("here");
+    setRenderDropDown(!renderDropDown);
   }
 
   return (
     <View style={navbarstyles.container}>
-      <TouchableOpacity activeOpacity = { .5 } onPress={ showDropDown }>
+      <TouchableOpacity style={navbarstyles.dropDownIcon} activeOpacity = { .5 } onPress={ showDropDown }>
         <Image
-          style={navbarstyles.dropdown}
+          style={navbarstyles.dropDownIcon}
           source={{
             uri: 'https://reactnative.dev/img/tiny_logo.png',
           }}
         />
       </TouchableOpacity>
-      {/* <Text>AMONG US SUS</Text> */}
+      {renderDropDown && <DropDown serviceData={props.serviceData}/>}
     </View>
   );
 };
@@ -55,9 +42,15 @@ const navbarstyles = StyleSheet.create({
     backgroundColor: 'transparent',
     // opacity: 0,
   },
-  dropdown: {
-    width: 66, // 66
-    height: 58, // 58
+  dropDownIcon: {
+    width: 66, 
+    height: 58,
+  },
+  dropDown: {
+    position: 'absolute',
+    x: 0,
+    display: 'flex',
+    backgroundColor: 'white',
   },
 });
 
