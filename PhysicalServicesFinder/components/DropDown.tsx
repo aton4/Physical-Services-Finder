@@ -1,18 +1,17 @@
-import React, { useState, useRef, useEffect } from 'react';
-import {
-  StyleSheet,
-  View,
-  SafeAreaView,
-  FlatList,
-  Text
-} from 'react-native';
+import React, {useState, useRef, useEffect} from 'react';
+import {StyleSheet, View, SafeAreaView, FlatList, Text} from 'react-native';
 
 const DropDown = (props: any) => {
-
-  const renderItem = ({ item }: { item: any }) => (
-    // <Item title={item.title} />
-    <Text style={dropdownstyles.item}>{item.title}</Text>
-  );
+  const renderItem = ({item}: {item: any}) => {
+    console.log(item.refTitle);
+    return (
+      <Text
+        style={dropdownstyles.item}
+        onPress={props.changeDisplayedMarkers(item.refTitle)}>
+        {item.title}
+      </Text>
+    );
+  };
 
   return (
     <SafeAreaView style={dropdownstyles.container}>
@@ -21,7 +20,7 @@ const DropDown = (props: any) => {
         contentContainerStyle={dropdownstyles.list}
         data={props.serviceData}
         renderItem={renderItem}
-        keyExtractor={item => item.id}
+        keyExtractor={item => item.refTitle}
       />
     </SafeAreaView>
   );
@@ -43,7 +42,7 @@ const dropdownstyles = StyleSheet.create({
     textShadowRadius: 5,
     textShadowOffset: {
       width: 1,
-      height: 1
+      height: 1,
     },
   },
   list: {
@@ -61,9 +60,9 @@ const dropdownstyles = StyleSheet.create({
     textShadowRadius: 5,
     textShadowOffset: {
       width: 1,
-      height: 1
+      height: 1,
     },
-  }
+  },
 });
 
 export default DropDown;

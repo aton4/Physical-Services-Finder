@@ -8,47 +8,151 @@
  * @format
  */
 
-import React from 'react';
-import {
-  StyleSheet,
-  View,
-} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, View, TouchableOpacity} from 'react-native';
 
-import MapView from 'react-native-maps';
+import MapView, {Marker} from 'react-native-maps';
 import Navbar from './components/Navbar';
 
-const data = [
+const serviceData = [
   {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
     title: 'Restrooms',
+    refTitle: 'restrooms',
   },
   {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
     title: 'Water Stations',
+    refTitle: 'waterStations',
   },
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
     title: 'Study Rooms',
+    refTitle: 'studyRooms',
   },
 ];
 
+const markerData = new Map();
+markerData.set('restrooms', [
+  {
+    locationName: 'science library 573',
+    coordinate: {
+      latitude: 33.64598,
+      longitude: -117.84629,
+      latitudeDelta: 0.006,
+      longitudeDelta: 0.006,
+    },
+    additionalDirections: 'Room 573, open during library hours',
+  },
+  {
+    locationName: 'rowland hall B92',
+    coordinate: {
+      latitude: 33.64461,
+      longitude: -117.84425,
+      latitudeDelta: 0.006,
+      longitudeDelta: 0.006,
+    },
+    additionalDirections: 'Room B92, mon-fri 6am-11pm',
+  },
+]);
+
+markerData.set('waterStations', [
+  {
+    locationName: 'engineering lecture hall',
+    coordinate: {
+      latitude: 33.64459,
+      longitude: -117.84069,
+      latitudeDelta: 0.006,
+      longitudeDelta: 0.006,
+    },
+    additionalDirections:
+      'Bottle filling station located outside ELH near restrooms.',
+  },
+  {
+    locationName: 'social science tower',
+    coordinate: {
+      latitude: 33.64654,
+      longitude: -117.84008,
+      latitudeDelta: 0.006,
+      longitudeDelta: 0.006,
+    },
+    additionalDirections: 'Bottle filling station located near Room 175',
+  },
+]);
+markerData.set('studyRooms', [
+  {
+    locationName: 'terrace lobby',
+    coordinate: {
+      latitude: 33.64941,
+      longitude: -117.84238,
+      latitudeDelta: 0.006,
+      longitudeDelta: 0.006,
+    },
+    additionalDirections: 'level 2, inside near west food court',
+  },
+  {
+    locationName: 'langson library',
+    coordinate: {
+      latitude: 33.64723,
+      longitude: -117.84098,
+      latitudeDelta: 0.006,
+      longitudeDelta: 0.006,
+    },
+    additionalDirections:
+      'Book online for a closed off room or find a spot inside',
+  },
+]);
+
 const App = () => {
+  const [renderDropDown, setRenderDropDown] = useState(false);
+  const [displayedMarkers, setDisplayMarkers] = useState(new Set());
+
+  const closeDropDown = () => {
+    setRenderDropDown(false);
+  };
+
+  const changeDisplayedMarkers = (name: string) => {
+    const newDisplayedMarkers = displayedMarkers;
+
+    if (newDisplayedMarkers.has(name)) newDisplayedMarkers.delete(name);
+    else newDisplayedMarkers.add(name);
+
+    setDisplayMarkers(newDisplayedMarkers);
+  };
+
   return (
     <View style={mapstyles.container}>
-      <Navbar serviceData={data}/>
-      <View style={mapstyles.container}>
-        {/* Render our MapView */}
-        <MapView
-          style={mapstyles.map}
-          // specify our coordinates.
-          initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          }}
-        />
-      </View>
+      <Navbar
+        serviceData={serviceData}
+        setRenderDropDown={setRenderDropDown}
+        renderDropDown={renderDropDown}
+        changeDisplayedMarkers={changeDisplayedMarkers}
+      />
+      <TouchableOpacity
+        style={mapstyles.container}
+        activeOpacity={1.0}
+        onPress={closeDropDown}>
+        <View style={mapstyles.container}>
+          {/* Render our MapView */}
+          <MapView
+            style={mapstyles.map}
+            // specify our coordinates.
+            mapType={'hybrid'}
+            initialRegion={{
+              latitude: 33.645949,
+              longitude: -117.842753,
+              latitudeDelta: 0.006,
+              longitudeDelta: 0.006,
+            }}>
+            {/* STILL NEED TO TEST LOADING MARKERS */}
+            {Array.from(displayedMarkers).map(serviceName => {
+              markerData.get(serviceName).array.forEach((element: any) => {
+                <Marker
+                  coordinate={element.coordinate}
+                  key={element.locationName}
+                />;
+              });
+            })}
+          </MapView>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };
