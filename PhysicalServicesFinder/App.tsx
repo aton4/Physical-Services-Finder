@@ -10,6 +10,7 @@
 
 import React, {useState} from 'react';
 import {StyleSheet, View, TouchableOpacity} from 'react-native';
+import { ListItem } from 'react-native-elements/dist/list/ListItem';
 
 import MapView, {Marker} from 'react-native-maps';
 import Navbar from './components/Navbar';
@@ -29,7 +30,7 @@ const serviceData = [
   },
 ];
 
-const markerData = new Map();
+const markerData = new Map<string, any>();
 markerData.set('restrooms', [
   {
     locationName: 'science library 573',
@@ -99,36 +100,44 @@ markerData.set('studyRooms', [
       'Book online for a closed off room or find a spot inside',
   },
 ]);
+let foo:string[] = []
 
 const App = () => {
   const [renderDropDown, setRenderDropDown] = useState(false);
-  const [displayedMarkers, setDisplayMarkers] = useState(new Set());
+  const [displayedMarkers, setDisplayMarkers] = useState(foo);
 
   const closeDropDown = () => {
     setRenderDropDown(false);
   };
 
-  const changeDisplayedMarkers = (name: string) => {
-    const newDisplayedMarkers = displayedMarkers;
+  const openDropDown = () => {
+    setRenderDropDown(true);
+  };
 
-    if (newDisplayedMarkers.has(name)) newDisplayedMarkers.delete(name);
-    else newDisplayedMarkers.add(name);
+  const changeDisplayedMarkers = (name: string) => {
+    // temporary fix 
+    const newDisplayedMarkers = [...displayedMarkers];
+
+    if (newDisplayedMarkers.includes(name)) newDisplayedMarkers.splice(newDisplayedMarkers.indexOf(name), 1)
+    else newDisplayedMarkers.push(name);
 
     setDisplayMarkers(newDisplayedMarkers);
   };
+
+  console.log("rerendering")
 
   return (
     <View style={mapstyles.container}>
       <Navbar
         serviceData={serviceData}
-        setRenderDropDown={setRenderDropDown}
+        openDropDown={openDropDown}
         renderDropDown={renderDropDown}
         changeDisplayedMarkers={changeDisplayedMarkers}
       />
       <TouchableOpacity
         style={mapstyles.container}
         activeOpacity={1.0}
-        onPress={closeDropDown}>
+        onPress={() => closeDropDown()}>
         <View style={mapstyles.container}>
           {/* Render our MapView */}
           <MapView
@@ -142,13 +151,18 @@ const App = () => {
               longitudeDelta: 0.006,
             }}>
             {/* STILL NEED TO TEST LOADING MARKERS */}
-            {Array.from(displayedMarkers).map(serviceName => {
-              markerData.get(serviceName).array.forEach((element: any) => {
-                <Marker
+            {
+            displayedMarkers.map((serviceName: string) => {
+              console.log(serviceName)
+              const markers: Marker[] = markerData.get(serviceName).map((element: any) => {
+                console.log(element.locationName)
+                return <Marker
                   coordinate={element.coordinate}
                   key={element.locationName}
                 />;
               });
+
+              return markers;
             })}
           </MapView>
         </View>

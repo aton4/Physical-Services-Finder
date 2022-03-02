@@ -3,11 +3,10 @@ import {StyleSheet, View, SafeAreaView, FlatList, Text} from 'react-native';
 
 const DropDown = (props: any) => {
   const renderItem = ({item}: {item: any}) => {
-    console.log(item.refTitle);
     return (
       <Text
         style={dropdownstyles.item}
-        onPress={props.changeDisplayedMarkers(item.refTitle)}>
+        onPress={() => props.changeDisplayedMarkers(item.refTitle)}>
         {item.title}
       </Text>
     );
@@ -33,6 +32,10 @@ const dropdownstyles = StyleSheet.create({
     display: 'flex',
     width: '55%',
     backgroundColor: 'white',
+    borderColor: 'grey',
+    borderRightWidth: 3,
+    borderBottomWidth: 3,
+    paddingBottom: 15,
   },
   header: {
     marginLeft: 7,
