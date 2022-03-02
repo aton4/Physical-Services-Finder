@@ -124,8 +124,6 @@ const App = () => {
     setDisplayMarkers(newDisplayedMarkers);
   };
 
-  console.log("rerendering")
-
   return (
     <View style={mapstyles.container}>
       <Navbar
@@ -150,12 +148,9 @@ const App = () => {
               latitudeDelta: 0.006,
               longitudeDelta: 0.006,
             }}>
-            {/* STILL NEED TO TEST LOADING MARKERS */}
             {
             displayedMarkers.map((serviceName: string) => {
-              console.log(serviceName)
               const markers: Marker[] = markerData.get(serviceName).map((element: any) => {
-                console.log(element.locationName)
                 return <Marker
                   coordinate={element.coordinate}
                   key={element.locationName}
