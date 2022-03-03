@@ -169,11 +169,13 @@ const styles = StyleSheet.create({
   },
   locationName: {
     fontWeight: 'bold',
+    color: 'black',
     fontSize: 30,
     flexGrow: 4,
   },
   desc: {
     fontSize: 20,
+    fontWeight: 'bold',
   },
   directionButton: {
     backgroundColor: 'white',
@@ -192,7 +194,7 @@ const styles = StyleSheet.create({
     shadowColor: 'black',
     shadowOffset: {
       width: 2,
-      height: 2
+      height: 2,
     },
     shadowOpacity: 1,
     shadowRadius: 3,
@@ -218,6 +220,7 @@ const styles = StyleSheet.create({
   },
   directionsText: {
     fontSize: 20,
+    color: 'red',
   },
 });
 
