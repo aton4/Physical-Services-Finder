@@ -9,11 +9,13 @@
  */
 
 import React, {useState} from 'react';
-import {StyleSheet, View, TouchableOpacity} from 'react-native';
-import { ListItem } from 'react-native-elements/dist/list/ListItem';
+import {StyleSheet, View, TouchableOpacity, Image} from 'react-native';
+import {ListItem} from 'react-native-elements/dist/list/ListItem';
 
 import MapView, {Marker} from 'react-native-maps';
+import DetailsView from './components/detailsView';
 import Navbar from './components/Navbar';
+import {decode} from "@mapbox/polyline";
 
 const serviceData = [
   {
@@ -100,12 +102,23 @@ markerData.set('studyRooms', [
       'Book online for a closed off room or find a spot inside',
   },
 ]);
-let foo:string[] = []
+let markers: string[] = [];
+let markerObject: {
+  locationName: string;
+  coordinate: {
+    latitude: number;
+    longitude: number;
+    latitudeDelta: number;
+    longitudeDelta: 0.006;
+  };
+  additionalDirections: string;
+} | null = null;
 
 const App = () => {
   const [renderDropDown, setRenderDropDown] = useState(false);
-  const [displayedMarkers, setDisplayMarkers] = useState(foo);
-
+  const [displayedMarkers, setDisplayMarkers] = useState(markers);
+  const [markerDetails, setMarkerDetails] = useState(markerObject);
+  
   const closeDropDown = () => {
     setRenderDropDown(false);
   };
@@ -114,14 +127,73 @@ const App = () => {
     setRenderDropDown(true);
   };
 
+  const getDirections = async (startLoc: any, destinationLoc: any) => {
+    try {
+      const KEY = "YOUR GOOGLE API KEY"; //put your API key here.
+      //otherwise, you'll have an 'unauthorized' error.
+      let resp = await fetch(
+        `https://maps.googleapis.com/maps/api/directions/json?origin=${startLoc}&destination=${destinationLoc}&key=${KEY}`
+      );
+      let respJson = await resp.json();
+      let points = decode(respJson.routes[0].overview_polyline.points);
+      console.log(points);
+      let coords = points.map((point: any, index: any) => {
+        return {
+          latitude: point[0],
+          longitude: point[1]
+        };
+      });
+      return coords;
+    } catch (error) {
+      return error;
+    }
+  };
+
   const changeDisplayedMarkers = (name: string) => {
-    // temporary fix 
+    // temporary fix
     const newDisplayedMarkers = [...displayedMarkers];
 
-    if (newDisplayedMarkers.includes(name)) newDisplayedMarkers.splice(newDisplayedMarkers.indexOf(name), 1)
+    if (newDisplayedMarkers.includes(name))
+      newDisplayedMarkers.splice(newDisplayedMarkers.indexOf(name), 1);
     else newDisplayedMarkers.push(name);
 
     setDisplayMarkers(newDisplayedMarkers);
+  };
+
+  const selectRenderDetails = (details: {
+    locationName: string;
+    coordinate: {
+      latitude: number;
+      longitude: number;
+      latitudeDelta: number;
+      longitudeDelta: 0.006;
+    };
+    additionalDirections: string;
+  }) => {
+    console.log('asdasdasasd');
+    console.log(markerDetails, details);
+    let locationName = null;
+    if (markerDetails) locationName = markerDetails.locationName;
+
+    if (details.locationName !== locationName) {
+      console.log('asdasdasasd12345');
+      setMarkerDetails(details);
+    } else setMarkerDetails(null);
+  };
+
+  const removeMarkerDetails = () => {
+    setMarkerDetails(null);
+  };
+
+  const selectMarkerIcon = (serviceName: string) => {
+    switch (serviceName) {
+      case 'waterStations':
+        return require('./images/water.png');
+      case 'restrooms':
+        return require('./images/restroom.png');
+      case 'studyRooms':
+        return require('./images/book.png');
+    }
   };
 
   return (
@@ -148,20 +220,30 @@ const App = () => {
               latitudeDelta: 0.006,
               longitudeDelta: 0.006,
             }}>
-            {
-            displayedMarkers.map((serviceName: string) => {
-              const markers: Marker[] = markerData.get(serviceName).map((element: any) => {
-                return <Marker
-                  coordinate={element.coordinate}
-                  key={element.locationName}
-                />;
-              });
+            {displayedMarkers.map((serviceName: string) => {
+              const markers: Marker[] = markerData
+                .get(serviceName)
+                .map((element: any) => {
+                  return (
+                    <Marker
+                      coordinate={element.coordinate}
+                      key={element.locationName}
+                      onPress={() => selectRenderDetails(element)}
+                      icon={selectMarkerIcon(serviceName)}></Marker>
+                  );
+                });
 
               return markers;
             })}
           </MapView>
         </View>
       </TouchableOpacity>
+      {markerDetails && (
+        <DetailsView
+          details={markerDetails}
+          removeMarkerDetails={removeMarkerDetails}
+        />
+      )}
     </View>
   );
 };

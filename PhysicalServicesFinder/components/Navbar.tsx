@@ -20,11 +20,9 @@ const Navbar = (props: any) => {
         onPress={() => props.openDropDown()}>
         <Image
           style={navbarstyles.dropDownIcon}
-          source={{
-            uri: 'https://reactnative.dev/img/tiny_logo.png',
-            // uri: reactlogo,
-            // require("../images/reactlogo.png")
-          }}
+          source={
+            require("../images/dropdown.png")
+          }
         />
       </TouchableOpacity>
       {props.renderDropDown && (
