@@ -11,7 +11,6 @@ import DropDown from './DropDown';
 // import {reactlogo} from "../images/reactlogo.png";
 
 const Navbar = (props: any) => {
-
   return (
     <View style={navbarstyles.container}>
       <TouchableOpacity
@@ -20,9 +19,7 @@ const Navbar = (props: any) => {
         onPress={() => props.openDropDown()}>
         <Image
           style={navbarstyles.dropDownIcon}
-          source={
-            require("../images/dropdown.png")
-          }
+          source={require('../images/dropdown.png')}
         />
       </TouchableOpacity>
       {props.renderDropDown && (

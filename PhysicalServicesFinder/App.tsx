@@ -8,14 +8,22 @@
  * @format
  */
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {StyleSheet, View, TouchableOpacity, Image} from 'react-native';
 import {ListItem} from 'react-native-elements/dist/list/ListItem';
 
 import MapView, {Marker} from 'react-native-maps';
 import DetailsView from './components/detailsView';
 import Navbar from './components/Navbar';
-import {decode} from "@mapbox/polyline";
+import {decode} from '@mapbox/polyline';
+import {requestMultiple, PERMISSIONS} from 'react-native-permissions';
+
+requestMultiple([PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION]).then(statuses => {
+  console.log(
+    'fine location',
+    statuses[PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION],
+  );
+});
 
 const serviceData = [
   {
@@ -35,6 +43,7 @@ const serviceData = [
 const markerData = new Map<string, any>();
 markerData.set('restrooms', [
   {
+    type: 'restrooms',
     locationName: 'science library 573',
     coordinate: {
       latitude: 33.64598,
@@ -45,6 +54,7 @@ markerData.set('restrooms', [
     additionalDirections: 'Room 573, open during library hours',
   },
   {
+    type: 'restrooms',
     locationName: 'rowland hall B92',
     coordinate: {
       latitude: 33.64461,
@@ -58,6 +68,7 @@ markerData.set('restrooms', [
 
 markerData.set('waterStations', [
   {
+    type: 'waterStations',
     locationName: 'engineering lecture hall',
     coordinate: {
       latitude: 33.64459,
@@ -69,6 +80,7 @@ markerData.set('waterStations', [
       'Bottle filling station located outside ELH near restrooms.',
   },
   {
+    type: 'waterStations',
     locationName: 'social science tower',
     coordinate: {
       latitude: 33.64654,
@@ -81,6 +93,7 @@ markerData.set('waterStations', [
 ]);
 markerData.set('studyRooms', [
   {
+    type: 'studyRooms',
     locationName: 'terrace lobby',
     coordinate: {
       latitude: 33.64941,
@@ -91,6 +104,7 @@ markerData.set('studyRooms', [
     additionalDirections: 'level 2, inside near west food court',
   },
   {
+    type: 'studyRooms',
     locationName: 'langson library',
     coordinate: {
       latitude: 33.64723,
@@ -104,6 +118,7 @@ markerData.set('studyRooms', [
 ]);
 let markers: string[] = [];
 let markerObject: {
+  type: string;
   locationName: string;
   coordinate: {
     latitude: number;
@@ -113,12 +128,14 @@ let markerObject: {
   };
   additionalDirections: string;
 } | null = null;
+let coordsList: number[] = [];
 
 const App = () => {
   const [renderDropDown, setRenderDropDown] = useState(false);
   const [displayedMarkers, setDisplayMarkers] = useState(markers);
   const [markerDetails, setMarkerDetails] = useState(markerObject);
-  
+  const [coords, setCoords] = useState(coordsList);
+
   const closeDropDown = () => {
     setRenderDropDown(false);
   };
@@ -127,12 +144,15 @@ const App = () => {
     setRenderDropDown(true);
   };
 
-  const getDirections = async (startLoc: any, destinationLoc: any) => {
+  const getDirections = async (
+    startLoc: any,
+    destinationLoc: any,
+  ): Promise<any> => {
     try {
-      const KEY = "YOUR GOOGLE API KEY"; //put your API key here.
+      const KEY = 'AIzaSyArDc1CbIpCm-w_3lFXHY8hWmzjX5DpLJs'; //put your API key here.
       //otherwise, you'll have an 'unauthorized' error.
       let resp = await fetch(
-        `https://maps.googleapis.com/maps/api/directions/json?origin=${startLoc}&destination=${destinationLoc}&key=${KEY}`
+        `https://maps.googleapis.com/maps/api/directions/json?origin=${startLoc}&destination=${destinationLoc}&key=${KEY}`,
       );
       let respJson = await resp.json();
       let points = decode(respJson.routes[0].overview_polyline.points);
@@ -140,7 +160,7 @@ const App = () => {
       let coords = points.map((point: any, index: any) => {
         return {
           latitude: point[0],
-          longitude: point[1]
+          longitude: point[1],
         };
       });
       return coords;
@@ -161,6 +181,7 @@ const App = () => {
   };
 
   const selectRenderDetails = (details: {
+    type: string;
     locationName: string;
     coordinate: {
       latitude: number;
@@ -196,7 +217,20 @@ const App = () => {
     }
   };
 
+  const updateCoords = (lat: number, long: number) => {
+    setCoords([lat, long]);
+    console.log(`app view coords${coords[0]} ${coords[1]}`);
+  };
+
+  useEffect(() => {
+    //fetch the coordinates and then store its value into the coords Hook.
+    getDirections('52.5200066,13.404954', '50.1109221,8.6821267')
+      .then((coords: any) => setCoords(coords))
+      .catch(err => console.log('Something went wrong'));
+  }, []);
+
   return (
+    // <SomeComponent/>
     <View style={mapstyles.container}>
       <Navbar
         serviceData={serviceData}
@@ -242,6 +276,9 @@ const App = () => {
         <DetailsView
           details={markerDetails}
           removeMarkerDetails={removeMarkerDetails}
+          getDirections={getDirections}
+          updateCoords={updateCoords}
+          selectMarkerIcon={selectMarkerIcon}
         />
       )}
     </View>
