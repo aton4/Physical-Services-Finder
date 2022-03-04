@@ -1,0 +1,761 @@
+[
+  {
+    "type": "waterStations",
+    "locationName": "MPAA",
+    "coordinate": {
+      "latitude": 33.64763407627505,
+      "longitude": -117.83710633080281,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "2nd Floor,\n4th Floor"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Education Building (Law)",
+    "coordinate": {
+      "latitude": 33.64697379755524,
+      "longitude": -117.8358947866277,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "1st Floor by the Restrooms,\n2st Floor by the Restrooms"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Student Health 1",
+    "coordinate": {
+      "latitude": 33.64590038483095,
+      "longitude": -117.8357426109211,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "1st Floor"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Public Services",
+    "coordinate": {
+      "latitude": 33.64657902314238,
+      "longitude": -117.83479847234872,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Exterior, 1st Floor by Fire Alarm"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Gateway Study Center",
+    "coordinate": {
+      "latitude": 33.647662295697806,
+      "longitude": -117.84175770348502,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "1st Floor by Staircase,\n2nd Floor by Staircase,\n3rd Floor by Staircase"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Langson Library",
+    "coordinate": {
+      "latitude": 33.6473503396027,
+      "longitude": -117.8410650286082,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Near Room 264"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Student Services 2",
+    "coordinate": {
+      "latitude": 33.648186362981534,
+      "longitude": -117.84232390162839,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 1020A,\nUndergrad Hallway"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Cross Cultural Center",
+    "coordinate": {
+      "latitude": 33.647925681733966,
+      "longitude": -117.84180718628146,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "1st Floor"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Aldrich Hall",
+    "coordinate": {
+      "latitude": 33.648564543183795,
+      "longitude": -117.84124735930163,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "1st Floor by restroom"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Student Center/Event Services",
+    "coordinate": {
+      "latitude": 33.64906750465438,
+      "longitude": -117.84215782860801,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "1st Floor Pacific Lobby by restroom,\n1st Floor Main Entrance by restroom,\nG Building, 211 by Restrooms,\nG Building, 311 by Restrooms,\nG Building, 411 by Restrooms,\nA Building, 3rd Floor Admin"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Social Science Hall",
+    "coordinate": {
+      "latitude": 33.64638764725004,
+      "longitude": -117.84002681511814,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "1st Floor"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Social Sci. Tower",
+    "coordinate": {
+      "latitude": 33.64671729824722,
+      "longitude": -117.84010310162823,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 175"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Social Sci Lab",
+    "coordinate": {
+      "latitude": 33.646072979352795,
+      "longitude": -117.8399964286082,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 140"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Social Ecology 1",
+    "coordinate": {
+      "latitude": 33.646363373241435,
+      "longitude": -117.8388442169751,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "1st Floor by Restrooms,\n2nd Floor"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Soc Sci Lect Hall Pl. A",
+    "coordinate": {
+      "latitude": 33.647483627556156,
+      "longitude": -117.83971433046493,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Inside"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "SBSG",
+    "coordinate": {
+      "latitude": 33.64757643319921,
+      "longitude": -117.8390341151183,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "1st Floor"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Unex Building",
+    "coordinate": {
+      "latitude": 33.64519173913761,
+      "longitude": -117.8348123593016,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 114,\nRoom 100,\nRoom 171"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Information & Comp. Science",
+    "coordinate": {
+      "latitude": 33.644394555910004,
+      "longitude": -117.84177981511834,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "2nd Floor - Exterior"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Engineering Tower",
+    "coordinate": {
+      "latitude": 33.64491357645638,
+      "longitude": -117.84105124226943,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 435 - Near Restrooms,\n6th Floor Near Restrooms"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Engineering Lecture Hall",
+    "coordinate": {
+      "latitude": 33.64491357645638,
+      "longitude": -117.85105124226943,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Outside Near Restrooms"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Engineering Hall",
+    "coordinate": {
+      "latitude": 33.64392334697555,
+      "longitude": -117.84116261528519,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "1st Floor by Stairs"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "McDonald Douglas Eng. Auditorium",
+    "coordinate": {
+      "latitude": 33.64404920553943,
+      "longitude": -117.8406111153596,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Outside Near Restrooms"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Bren Hall",
+    "coordinate": {
+      "latitude": 33.64347837528836,
+      "longitude": -117.84199777303046,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 1429,\n3rd Floor Near Restrooms,\n4th Floor Near Restrooms,\n6th Floor, Near Restrooms"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Eng. Gateway, East",
+    "coordinate": {
+      "latitude": 33.643123417084404,
+      "longitude": -117.83957555768873,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "1st Floor Near Restrooms,\n2nd Floor Near Restrooms"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Eng. Gateway, West",
+    "coordinate": {
+      "latitude": 33.643123417084404,
+      "longitude": -117.84957555768873,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "2nd Floor near women's Restroom, 2305"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Cal IT 2",
+    "coordinate": {
+      "latitude": 33.643123417084404,
+      "longitude": -117.81957555768873,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Atrium, by Room 1100,\n3rd Floor, Kitchen 3400C"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Rowland Hall",
+    "coordinate": {
+      "latitude": 33.644688713836146,
+      "longitude": -117.84406067118225,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Lobby, Room 149,\n4th Floor, Room 420"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "FRH Reines Hall",
+    "coordinate": {
+      "latitude": 33.644361241300096,
+      "longitude": -117.84348364419509,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Basement- Loading Dock,\n1st Floor near men's Restroom"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Nat Sci 2",
+    "coordinate": {
+      "latitude": 33.64428294638095,
+      "longitude": -117.84520800001775,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 1120,\n3rd Floor Lobby"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Physical Sci. Lecture Hall",
+    "coordinate": {
+      "latitude": 33.64363120666712,
+      "longitude": -117.84390685768868,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Outside of Building- Ring Mall side,\nOutside of Bldg along the side"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "MSTB",
+    "coordinate": {
+      "latitude": 33.642229150855904,
+      "longitude": -117.8443827865241,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 134"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Croul Hall",
+    "coordinate": {
+      "latitude": 33.64390037895805,
+      "longitude": -117.84472364604322,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 164"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Newkirk Alumni Center",
+    "coordinate": {
+      "latitude": 33.65250796675932,
+      "longitude": -117.84607527118217,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Conference Center Lobby"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Howard Schneiderman",
+    "coordinate": {
+      "latitude": 33.645807469246854,
+      "longitude": -117.84460710001767,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Lecture Hall"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Steinhaus Hall",
+    "coordinate": {
+      "latitude": 33.646399710285415,
+      "longitude": -117.84488495953676,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 139"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "McGaugh Hall",
+    "coordinate": {
+      "latitude": 33.64537097560121,
+      "longitude": -117.84483297487876,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "1st Floor Hallway by Restrooms"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Bio Sci 3",
+    "coordinate": {
+      "latitude": 33.64537097560121,
+      "longitude": -117.84183297487876,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 1300,\n4th Floor"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Bison Modular Kitchen- ULAR",
+    "coordinate": {
+      "latitude": 33.64537097560121,
+      "longitude": -117.83983297487876,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "1st Floor - Kitchen"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Science Library",
+    "coordinate": {
+      "latitude": 33.64592023203046,
+      "longitude": -117.84653108652405,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 1184,\n2nd Floor, Room 272"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Krieger Hall",
+    "coordinate": {
+      "latitude": 33.647808638698564,
+      "longitude": -117.84357837487862,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 211"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Humanities Hall",
+    "coordinate": {
+      "latitude": 33.647517502070066,
+      "longitude": -117.84399051535951,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Inside by Room 232,\n3rd Floor, Outside"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "ALP",
+    "coordinate": {
+      "latitude": 33.64732410253177,
+      "longitude": -117.84429198467589,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "1st Floor North,\n1st Floor South,\n2nd Floor North,\n2nd Floor South,\n3rd Floor North,\n3rd Floor South"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Humanities Instructional Bldg",
+    "coordinate": {
+      "latitude": 33.64856739956423,
+      "longitude": -117.843925930701269,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Exterior Near Room 110"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Humanities Gateway",
+    "coordinate": {
+      "latitude": 33.6485569373438,
+      "longitude": -117.84441967303047,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Exterior 1st Floor, Near Loading Dock"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Intercollegiate Athletics Bldg",
+    "coordinate": {
+      "latitude": 33.6485569373438,
+      "longitude": -117.85041967303047,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Exterior, 2nd FL by Restroom"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "AIRB",
+    "coordinate": {
+      "latitude": 33.64317620789462,
+      "longitude": -117.83833991535951,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Near Room 1030"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Winifred Smith Hall",
+    "coordinate": {
+      "latitude": 33.6497443656173,
+      "longitude": -117.84439598652405,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 182"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Costume Shop",
+    "coordinate": {
+      "latitude": 33.6497443656173,
+      "longitude": -117.84639598652405,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room B10"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Dance Studio Theatre",
+    "coordinate": {
+      "latitude": 33.64958816597393,
+      "longitude": -117.84555837303049,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 120"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Art Studio",
+    "coordinate": {
+      "latitude": 33.65069583929708,
+      "longitude": -117.84481254419487,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "1st Floor Exterior,\n2nd Floor, by Restrooms"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Studio Theatre",
+    "coordinate": {
+      "latitude": 33.65069583929708,
+      "longitude": -117.84491254419487,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 120"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Fine Arts",
+    "coordinate": {
+      "latitude": 33.65069583929708,
+      "longitude": -117.84495254419487,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Outside Breezeway@Vending Machines"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Berk Hall",
+    "coordinate": {
+      "latitude": 33.646338552978555,
+      "longitude": -117.84950817303046,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Nurses Kitchen 1st unit,\nNurses Kitchen 2nd unit,\n3rd Floor, by Restroom"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Medical Sciences B",
+    "coordinate": {
+      "latitude": 33.64561675410217,
+      "longitude": -117.84998041720775,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "1st Floor, by Room B141"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Med Surge 2",
+    "coordinate": {
+      "latitude": 33.64561675410217,
+      "longitude": -117.85118041720775,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 311,\nRoom 353"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Irvine Hall",
+    "coordinate": {
+      "latitude": 33.64561675410217,
+      "longitude": -117.87118041720775,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 126"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Medical Education",
+    "coordinate": {
+      "latitude": 33.64487663495422,
+      "longitude": -117.85221125953687,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "1st FL Kitchen, 1004 Bus Ctr,\n3rd Floor, by 3070 (Coming Soon)"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Gillespie",
+    "coordinate": {
+      "latitude": 33.644214847572115,
+      "longitude": -117.85124065326009,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "1st Floor, MRR's 1229"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Sprague Hall",
+    "coordinate": {
+      "latitude": 33.64425594643985,
+      "longitude": -117.852027530701389,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "1st Floor, MRR's 119B,\nBasement Kitchen"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Hewitt",
+    "coordinate": {
+      "latitude": 33.6447191459797,
+      "longitude": -117.85201691255857,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "1st Floor (Coming Soon)"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Building Services Bldg",
+    "coordinate": {
+      "latitude": 33.6447191459797,
+      "longitude": -117.85301691255857,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Near Restrooms"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Grounds Maintenance Bldg",
+    "coordinate": {
+      "latitude": 33.6447191459797,
+      "longitude": -117.85251691255857,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Near Ice Maker"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Central Plant",
+    "coordinate": {
+      "latitude": 33.64817978831108,
+      "longitude": -117.8468311153596,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Break Room, 1st Floor"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Crawford Hall",
+    "coordinate": {
+      "latitude": 33.648261455847084,
+      "longitude": -117.84800974604693,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "In Corridor by Gymnasium,\nExterior, Field House,\nWeight Center,\nWomen's Locker Room,\nMen's Locker Room"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Aldrich Park - Exterior",
+    "coordinate": {
+      "latitude": 33.64624837359825,
+      "longitude": -117.84265877118227,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Inner Park, by Parkview Classrooms,\nInner Park, by Student Serv 1"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "Facilities Management Bldg",
+    "coordinate": {
+      "latitude": 33.6649433900333,
+      "longitude": -117.85482931535918,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 116"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "North Campus- Elecric Shop",
+    "coordinate": {
+      "latitude": 33.6649433900333,
+      "longitude": -117.85582931535918,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Kit Sink by Elect Shop"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "EH&S",
+    "coordinate": {
+      "latitude": 33.64075421065378,
+      "longitude": -117.844328388372458,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 124"
+  },
+  {
+    "type": "waterStations",
+    "locationName": "ACRC",
+    "coordinate": {
+      "latitude": 33.64367507009248,
+      "longitude": -117.82783028652415,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Lot 5- Trailer Bldg."
+  }
+]

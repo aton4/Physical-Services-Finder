@@ -17,6 +17,7 @@ import DetailsView from './components/detailsView';
 import Navbar from './components/Navbar';
 import {decode} from '@mapbox/polyline';
 import {requestMultiple, PERMISSIONS} from 'react-native-permissions';
+import MapViewDirections from 'react-native-maps-directions';
 
 requestMultiple([PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION]).then(statuses => {
   console.log(
@@ -41,81 +42,16 @@ const serviceData = [
 ];
 
 const markerData = new Map<string, any>();
-markerData.set('restrooms', [
-  {
-    type: 'restrooms',
-    locationName: 'science library 573',
-    coordinate: {
-      latitude: 33.64598,
-      longitude: -117.84629,
-      latitudeDelta: 0.006,
-      longitudeDelta: 0.006,
-    },
-    additionalDirections: 'Room 573, open during library hours',
-  },
-  {
-    type: 'restrooms',
-    locationName: 'rowland hall B92',
-    coordinate: {
-      latitude: 33.64461,
-      longitude: -117.84425,
-      latitudeDelta: 0.006,
-      longitudeDelta: 0.006,
-    },
-    additionalDirections: 'Room B92, mon-fri 6am-11pm',
-  },
-]);
 
-markerData.set('waterStations', [
-  {
-    type: 'waterStations',
-    locationName: 'engineering lecture hall',
-    coordinate: {
-      latitude: 33.64459,
-      longitude: -117.84069,
-      latitudeDelta: 0.006,
-      longitudeDelta: 0.006,
-    },
-    additionalDirections:
-      'Bottle filling station located outside ELH near restrooms.',
-  },
-  {
-    type: 'waterStations',
-    locationName: 'social science tower',
-    coordinate: {
-      latitude: 33.64654,
-      longitude: -117.84008,
-      latitudeDelta: 0.006,
-      longitudeDelta: 0.006,
-    },
-    additionalDirections: 'Bottle filling station located near Room 175',
-  },
-]);
-markerData.set('studyRooms', [
-  {
-    type: 'studyRooms',
-    locationName: 'terrace lobby',
-    coordinate: {
-      latitude: 33.64941,
-      longitude: -117.84238,
-      latitudeDelta: 0.006,
-      longitudeDelta: 0.006,
-    },
-    additionalDirections: 'level 2, inside near west food court',
-  },
-  {
-    type: 'studyRooms',
-    locationName: 'langson library',
-    coordinate: {
-      latitude: 33.64723,
-      longitude: -117.84098,
-      latitudeDelta: 0.006,
-      longitudeDelta: 0.006,
-    },
-    additionalDirections:
-      'Book online for a closed off room or find a spot inside',
-  },
-]);
+const restrooms = require('./serviceData/restrooms.json');
+markerData.set('restrooms', restrooms);
+
+const waterStations = require('./serviceData/waterStations.json');
+markerData.set('waterStations', waterStations);
+
+const studyRooms = require('./serviceData/studyRooms.json');
+markerData.set('studyRooms', studyRooms);
+
 let markers: string[] = [];
 let markerObject: {
   type: string;
@@ -128,7 +64,7 @@ let markerObject: {
   };
   additionalDirections: string;
 } | null = null;
-let coordsList: number[] = [];
+let coordsList: {latitude: number; longitude: number}[] = [];
 
 const App = () => {
   const [renderDropDown, setRenderDropDown] = useState(false);
@@ -144,40 +80,17 @@ const App = () => {
     setRenderDropDown(true);
   };
 
-  const getDirections = async (
-    startLoc: any,
-    destinationLoc: any,
-  ): Promise<any> => {
-    try {
-      const KEY = 'AIzaSyArDc1CbIpCm-w_3lFXHY8hWmzjX5DpLJs'; //put your API key here.
-      //otherwise, you'll have an 'unauthorized' error.
-      let resp = await fetch(
-        `https://maps.googleapis.com/maps/api/directions/json?origin=${startLoc}&destination=${destinationLoc}&key=${KEY}`,
-      );
-      let respJson = await resp.json();
-      let points = decode(respJson.routes[0].overview_polyline.points);
-      console.log(points);
-      let coords = points.map((point: any, index: any) => {
-        return {
-          latitude: point[0],
-          longitude: point[1],
-        };
-      });
-      return coords;
-    } catch (error) {
-      return error;
-    }
-  };
-
   const changeDisplayedMarkers = (name: string) => {
     // temporary fix
     const newDisplayedMarkers = [...displayedMarkers];
 
-    if (newDisplayedMarkers.includes(name))
+    if (newDisplayedMarkers.includes(name)) {
       newDisplayedMarkers.splice(newDisplayedMarkers.indexOf(name), 1);
-    else newDisplayedMarkers.push(name);
+      if (newDisplayedMarkers.length == 0) removeMarkerDetails();
+    } else newDisplayedMarkers.push(name);
 
     setDisplayMarkers(newDisplayedMarkers);
+    closeDropDown();
   };
 
   const selectRenderDetails = (details: {
@@ -191,15 +104,12 @@ const App = () => {
     };
     additionalDirections: string;
   }) => {
-    console.log('asdasdasasd');
-    console.log(markerDetails, details);
     let locationName = null;
     if (markerDetails) locationName = markerDetails.locationName;
 
     if (details.locationName !== locationName) {
-      console.log('asdasdasasd12345');
       setMarkerDetails(details);
-    } else setMarkerDetails(null);
+    }
   };
 
   const removeMarkerDetails = () => {
@@ -214,20 +124,17 @@ const App = () => {
         return require('./images/restroom.png');
       case 'studyRooms':
         return require('./images/book.png');
+      case 'origin':
+        return require('./images/water.png');
     }
   };
 
-  const updateCoords = (lat: number, long: number) => {
-    setCoords([lat, long]);
-    console.log(`app view coords${coords[0]} ${coords[1]}`);
+  const updateCoords = (
+    source: {latitude: number; longitude: number},
+    destination: {latitude: number; longitude: number},
+  ) => {
+    setCoords([source, destination]);
   };
-
-  useEffect(() => {
-    //fetch the coordinates and then store its value into the coords Hook.
-    getDirections('52.5200066,13.404954', '50.1109221,8.6821267')
-      .then((coords: any) => setCoords(coords))
-      .catch(err => console.log('Something went wrong'));
-  }, []);
 
   return (
     // <SomeComponent/>
@@ -248,12 +155,38 @@ const App = () => {
             style={mapstyles.map}
             // specify our coordinates.
             mapType={'hybrid'}
-            initialRegion={{
-              latitude: 33.645949,
-              longitude: -117.842753,
-              latitudeDelta: 0.006,
-              longitudeDelta: 0.006,
-            }}>
+            initialRegion={
+              coords.length === 2
+                ? {
+                    latitude: coords[0].latitude,
+                    longitude: coords[0].longitude,
+                    latitudeDelta: 0.006,
+                    longitudeDelta: 0.006,
+                  }
+                : {
+                    latitude: 33.645949,
+                    longitude: -117.842753,
+                    latitudeDelta: 0.006,
+                    longitudeDelta: 0.006,
+                  }
+            }>
+            {coords.length === 2 && (
+              <MapViewDirections
+                origin={coords[0]}
+                destination={coords[1]}
+                apikey={'AIzaSyArDc1CbIpCm-w_3lFXHY8hWmzjX5DpLJs'}
+                strokeWidth={10}
+                strokeColor="#ffa836" // #36bfff blue
+                mode="WALKING"
+              />
+            )}
+            {coords.length === 2 && (
+              <Marker
+                coordinate={coords[0]}
+                key={'origin'}
+                icon={selectMarkerIcon('origin')}
+              />
+            )}
             {displayedMarkers.map((serviceName: string) => {
               const markers: Marker[] = markerData
                 .get(serviceName)
@@ -261,9 +194,10 @@ const App = () => {
                   return (
                     <Marker
                       coordinate={element.coordinate}
-                      key={element.locationName}
+                      key={element.type + element.locationName}
                       onPress={() => selectRenderDetails(element)}
-                      icon={selectMarkerIcon(serviceName)}></Marker>
+                      icon={selectMarkerIcon(serviceName)}
+                    />
                   );
                 });
 
@@ -276,7 +210,6 @@ const App = () => {
         <DetailsView
           details={markerDetails}
           removeMarkerDetails={removeMarkerDetails}
-          getDirections={getDirections}
           updateCoords={updateCoords}
           selectMarkerIcon={selectMarkerIcon}
         />
@@ -296,3 +229,51 @@ const mapstyles = StyleSheet.create({
 });
 
 export default App;
+// import React, {Component} from 'react';
+// import {Text, Image, View, StyleSheet, ScrollView} from 'react-native';
+
+// class App extends Component {
+//   state = {
+//     names: [
+//       {name: 'Ben', id: 1},
+//       {name: 'Susan', id: 2},
+//       {name: 'Robert', id: 3},
+//       {name: 'Mary', id: 4},
+//       {name: 'Daniel', id: 5},
+//       {name: 'Laura', id: 6},
+//       {name: 'John', id: 7},
+//       {name: 'Debra', id: 8},
+//       {name: 'Aron', id: 9},
+//       {name: 'Ann', id: 10},
+//       {name: 'Steve', id: 11},
+//       {name: 'Olivia', id: 12},
+//     ],
+//   };
+//   render() {
+//     return (
+//       <View>
+//         <ScrollView>
+//           {this.state.names.map((item, index) => (
+//             <View key={item.id} style={styles.item}>
+//               <Text>{item.name}</Text>
+//             </View>
+//           ))}
+//         </ScrollView>
+//       </View>
+//     );
+//   }
+// }
+// export default App;
+
+// const styles = StyleSheet.create({
+//   item: {
+//     flexDirection: 'row',
+//     justifyContent: 'space-between',
+//     alignItems: 'center',
+//     padding: 30,
+//     margin: 2,
+//     borderColor: '#2a4944',
+//     borderWidth: 1,
+//     backgroundColor: '#d2f7f1',
+//   },
+// });

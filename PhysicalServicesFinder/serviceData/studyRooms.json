@@ -1,0 +1,68 @@
+[
+  {
+    "type": "studyRooms",
+    "locationName": "Langson Library",
+    "coordinate": {
+      "latitude": 33.64723,
+      "longitude": -117.84098,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Book online for a closed off room or find a spot inside"
+  },
+  {
+    "type": "studyRooms",
+    "locationName": "Science Library",
+    "coordinate": {
+      "latitude": 33.64606,
+      "longitude": -117.84634,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Book online for a closed off room or find a spot inside"
+  },
+  {
+    "type": "studyRooms",
+    "locationName": "Engineering Sofas",
+    "coordinate": {
+      "latitude": 33.6445,
+      "longitude": -117.84145,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Outside location.\nBetween ICS building and Engineering tower."
+  },
+  {
+    "type": "studyRooms",
+    "locationName": "Social Ecology 1",
+    "coordinate": {
+      "latitude": 33.64617,
+      "longitude": -117.8388,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Enter building from Ring Road.\nUsually not many people but elevators can be loud."
+  },
+  {
+    "type": "studyRooms",
+    "locationName": "Student Center",
+    "coordinate": {
+      "latitude": 33.64893,
+      "longitude": -117.84208,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Courtyard Study Lounge: 1st floor.\nCommuter Lounge: 1st floor\nDoheny"
+  },
+  {
+    "type": "studyRooms",
+    "locationName": "Visitor Center",
+    "coordinate": {
+      "latitude": 33.64894,
+      "longitude": -117.84211,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "level 2, inside near west food court"
+  }
+]

@@ -8,6 +8,7 @@ import {
   Animated,
   TouchableOpacity,
   Image,
+  ScrollView,
 } from 'react-native';
 import {Button} from 'react-native-elements/dist/buttons/Button';
 import Geolocation from 'react-native-geolocation-service';
@@ -15,16 +16,23 @@ import {check, PERMISSIONS, RESULTS} from 'react-native-permissions';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
 const config = {
-  velocityThreshold: 0.1, // 0.3
-  directionalOffsetThreshold: 10, // 80
+  velocityThreshold: 0.2, // 0.3
+  directionalOffsetThreshold: 40, // 80
 };
 
 const DetailsView = props => {
   const markerObject = props.details;
   const coords = `${markerObject.coordinate.latitude},${markerObject.coordinate.longitude}`;
-  const getDirections = props.getDirections;
   const [openDetails, setOpenDetails] = useState(true);
-  let currentPos = null;
+  const [source, setSource] = useState(null);
+  
+  // used to open the details view if the details view is closed and the user
+  // clicks on a different marker - displays the new marker information
+  const d = useRef(markerObject);
+  if (d.current !== markerObject) {
+    d.current = markerObject;
+    setOpenDetails(true);
+  }
 
   function onSwipeUp(gestureState) {
     setOpenDetails(true);
@@ -55,9 +63,10 @@ const DetailsView = props => {
     else hasLocationPermission = false;
 
     if (hasLocationPermission) {
-      Geolocation.getCurrentPosition(
+      await Geolocation.getCurrentPosition(
         position => {
-          currentPos = position;
+          // currentPos = position;
+          setSource(position);
           console.log(
             `current location: ${position.coords.latitude},${position.coords.longitude}`,
           );
@@ -76,7 +85,7 @@ const DetailsView = props => {
     // This is just dummy code and should be replaced by actual
     checkPerm();
   }, []);
-
+  console.log(openDetails);
   return (
     <GestureRecognizer
       onSwipeUp={state => onSwipeUp(state)}
@@ -84,45 +93,55 @@ const DetailsView = props => {
       config={config}>
       <SafeAreaView
         style={openDetails ? styles.openedContainer : styles.closedContainer}>
-        <Image
-          style={styles.sliderline}
-          source={require('../images/detailsline.png')}
-        />
-        <View style={styles.title}>
+        <ScrollView>
           <Image
-            style={styles.icon}
-            source={selectMarkerIcon(markerObject.type)}
+            style={styles.sliderline}
+            source={require('../images/detailsline.png')}
           />
-          <Text style={styles.locationName}>{markerObject.locationName}</Text>
-        </View>
-        <Text style={styles.desc}>
-          Where exactly?{'\n\n'}
-          {markerObject.additionalDirections}
-        </Text>
-        {/* <Button
-          // style={styles.button}
-          title="Directions"
-          buttonStyle={styles.directionButton}
-          onPress={() => {
-            props.updateCoords(
-              currentPos?.coords.latitude,
-              currentPos?.coords.longitude,
-            );
-          }}></Button> */}
-        <TouchableOpacity
-          style={styles.directionButton}
-          onPress={() => {
-            props.updateCoords(
-              currentPos?.coords.latitude,
-              currentPos?.coords.longitude,
-            );
-          }}>
+          <View style={styles.title}>
+            <Image
+              style={styles.icon}
+              source={selectMarkerIcon(markerObject.type)}
+            />
+            <Text style={styles.locationName}>{markerObject.locationName}</Text>
+          </View>
           <Image
-            style={styles.directionsIcon}
-            source={require('../images/directions.png')}
+            style={styles.locationimage}
+            source={require('../images/ics.jpg')}
           />
-          <Text style={styles.directionsText}>Directions</Text>
-        </TouchableOpacity>
+          <Text style={styles.desc}>
+            Where exactly?{'\n\n'}
+            {markerObject.additionalDirections}
+          </Text>
+          {!source ? (
+            <Text style={styles.loadingButton}>Loading Directions...</Text>
+          ) : null}
+          {source && (
+            <TouchableOpacity
+              style={styles.directionButton}
+              onPress={() => {
+                props.updateCoords(
+                  {
+                    latitude: source.coords.latitude,
+                    longitude: source.coords.longitude,
+                  },
+                  {
+                    latitude: markerObject.coordinate.latitude,
+                    longitude: markerObject.coordinate.longitude,
+                  },
+                );
+                setOpenDetails(false);
+              }}>
+              <Image
+                style={styles.directionsIcon}
+                source={require('../images/directions.png')}
+              />
+              <Text style={styles.directionsText}>Directions</Text>
+            </TouchableOpacity>
+          )}
+          {/* need an empty view with some height to register scrollview to scroll */}
+          <View style={{height: 100}}></View>
+        </ScrollView>
       </SafeAreaView>
     </GestureRecognizer>
   );
@@ -133,7 +152,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     // bottom: 0,
     top: '95%',
-    display: 'flex',
+    // display: 'flex',
     width: '100%',
     height: '100%',
     backgroundColor: 'white',
@@ -143,12 +162,14 @@ const styles = StyleSheet.create({
     padding: 15,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
+    // flexGrow: 1,
+    // flex: 1
   },
   openedContainer: {
     position: 'relative',
     // bottom: 0,
-    top: '50%',
-    display: 'flex',
+    top: '10%',
+    // display: 'flex',
     width: '100%',
     height: '100%',
     backgroundColor: 'white',
@@ -158,28 +179,50 @@ const styles = StyleSheet.create({
     padding: 15,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
+    // flexGrow: 1,
+    // flex: 1,
   },
   sliderline: {
-    display: 'flex',
     marginTop: '3%',
     marginBottom: '5%',
     marginLeft: 'auto',
     marginRight: 'auto',
     width: '50%',
+    // position: "sticky"
   },
   locationName: {
     fontWeight: 'bold',
     color: 'black',
     fontSize: 30,
-    flexGrow: 4,
+    flex: 1,
+    flexWrap: 'wrap',
+  },
+  locationimage: {
+    width: 300,
+    height: 300,
   },
   desc: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: 'black',
+  },
+  loadingButton: {
+    backgroundColor: 'white',
+    // display: 'flex',
+    marginTop: '10%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 5,
+    // height: "100%",
+    width: '50%',
+    alignItems: 'center',
+    color: 'black',
+    fontSize: 20,
   },
   directionButton: {
     backgroundColor: 'white',
-    display: 'flex',
     marginTop: '10%',
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -220,7 +263,7 @@ const styles = StyleSheet.create({
   },
   directionsText: {
     fontSize: 20,
-    color: 'red',
+    color: 'black',
   },
 });
 
