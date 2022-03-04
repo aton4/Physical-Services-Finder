@@ -52,17 +52,6 @@
       "latitudeDelta": 0.006,
       "longitudeDelta": 0.006
     },
-    "additionalDirections": "Courtyard Study Lounge: 1st floor.\nCommuter Lounge: 1st floor\nDoheny"
-  },
-  {
-    "type": "studyRooms",
-    "locationName": "Visitor Center",
-    "coordinate": {
-      "latitude": 33.64894,
-      "longitude": -117.84211,
-      "latitudeDelta": 0.006,
-      "longitudeDelta": 0.006
-    },
-    "additionalDirections": "level 2, inside near west food court"
+    "additionalDirections": "Courtyard Study Lounge: 1st floor\nCommuter Lounge: 1st floor\nDoheny Beach Lounge: 1st floor\nGallery Lounge: 1st floor\nTerrace Lounge: 2nd floor\nThe Hillside Lounge: between The Hill and Starbucks\nWest Courtyard Lounge: 1st Floor"
   }
 ]
