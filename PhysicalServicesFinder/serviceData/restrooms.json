@@ -1,0 +1,376 @@
+[
+  {
+    "type": "restrooms",
+    "locationName": "Aldrich Hall",
+    "coordinate": {
+      "latitude": 33.648537749555146,
+      "longitude": -117.84117225768851,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room B15,\nRoom 6th"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Anteater Recreation Center",
+    "coordinate": {
+      "latitude": 33.64363934309758,
+      "longitude": -117.82786247303054,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 104,\nRoom 105,\nRoom 275,\nRoom 272"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Arboretum",
+    "coordinate": {
+      "latitude": 33.663884003660904,
+      "longitude": -117.85272435768837,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 3"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Art, Culture and Technology",
+    "coordinate": {
+      "latitude": 33.65075278056818,
+      "longitude": -117.84498278652413,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 1204"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Art Studio",
+    "coordinate": {
+      "latitude": 33.650911185408155,
+      "longitude": -117.84628266239874,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 260A"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Arts Annex",
+    "coordinate": {
+      "latitude": 33.646833198029086,
+      "longitude": -117.84676070186593,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 2000"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Science Library",
+    "coordinate": {
+      "latitude": 33.64606557401532,
+      "longitude": -117.846277286524,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 573,\nRoom 589"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Berk Hall",
+    "coordinate": {
+      "latitude": 33.6464278676376,
+      "longitude": -117.84950817303046,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 263,\nRoom 265"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Cross Cultural Center",
+    "coordinate": {
+      "latitude": 33.64802392613677,
+      "longitude": -117.84180718652398,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 203"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Croul Hall",
+    "coordinate": {
+      "latitude": 33.64386465205669,
+      "longitude": -117.84460562885322,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room B301"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Engineering Tower",
+    "coordinate": {
+      "latitude": 33.64489531340747,
+      "longitude": -117.84110777487861,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 125"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Engineering & Computing Trailer",
+    "coordinate": {
+      "latitude": 33.64729357704071,
+      "longitude": -117.84210031535952,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 125,\nRoom 126"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Gateway Study Center",
+    "coordinate": {
+      "latitude": 33.64761763911489,
+      "longitude": -117.84167187303053,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 2001,\nRoom 2002"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Gavin Herbert Eye Institute",
+    "coordinate": {
+      "latitude": 33.64192037932962,
+      "longitude": -117.85222770186604,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room G005,\nRoom 1116,\nRoom 1137,\nRoom 1316"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Hewitt Hall",
+    "coordinate": {
+      "latitude": 33.643492848102504,
+      "longitude": -117.85184531720786,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 1123"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Humanities Hall",
+    "coordinate": {
+      "latitude": 33.64750857072139,
+      "longitude": -117.84396905768861,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 120"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "ICS II",
+    "coordinate": {
+      "latitude": 33.64492704598152,
+      "longitude": -117.84179113060615,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 222,\nRoom 224,\nRoom 228,\nRoom 230"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Krieger Hall",
+    "coordinate": {
+      "latitude": 33.64777291341908,
+      "longitude": -117.84349254419494,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 114,\nRoom 119"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Medical Education Bldg.",
+    "coordinate": {
+      "latitude": 33.64487663495422,
+      "longitude": -117.85213615768866,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 3015,\nRoom 3017"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Medical Sciences C",
+    "coordinate": {
+      "latitude": 33.6457244747941,
+      "longitude": -117.8504705730305,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room C127"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Medical Surge II",
+    "coordinate": {
+      "latitude": 33.64724917954565,
+      "longitude": -117.85026894419501,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 312A,\nRoom 312B"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Mesa Court",
+    "coordinate": {
+      "latitude": 33.65234288316377,
+      "longitude": -117.84455434234685,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 104,\nRoom 105"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Music & Media Building",
+    "coordinate": {
+      "latitude": 33.64950561036218,
+      "longitude": -117.84437754419488,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 114"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Rockwell Engr. Center",
+    "coordinate": {
+      "latitude": 33.64410228333262,
+      "longitude": -117.84051415768869,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 312,\nRoom 313"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Rowland Hall",
+    "coordinate": {
+      "latitude": 33.6447074821395,
+      "longitude": -117.84420080186594,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room B92,\nRoom B94"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Schneiderman Lecture Hall",
+    "coordinate": {
+      "latitude": 33.645736017012105,
+      "longitude": -117.8446714730304,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 105"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Social & Behavioral Sciences",
+    "coordinate": {
+      "latitude": 33.64761006789025,
+      "longitude": -117.83907857672673,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room G109"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Social Science Plaza B",
+    "coordinate": {
+      "latitude": 33.64709772618166,
+      "longitude": -117.83910467303056,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 1230"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Steinhaus Hall",
+    "coordinate": {
+      "latitude": 33.6463461214836,
+      "longitude": -117.84497079022042,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 115,\nRoom 118,\nRoom 262,\nRoom 264,\nRoom 364,\nRoom 368,\nRoom 468,\nRoom 470"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Student Center - ASUCI wing",
+    "coordinate": {
+      "latitude": 33.64760418070191,
+      "longitude": -117.8434703018658,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room G213,\nRoom G215"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Student Center - Health Education",
+    "coordinate": {
+      "latitude": 33.64860418070191,
+      "longitude": -117.8424703018658,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room G319"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Student Center - Starbucks",
+    "coordinate": {
+      "latitude": 33.64960418070191,
+      "longitude": -117.8354703018658,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "2nd Floor"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Student Ser I",
+    "coordinate": {
+      "latitude": 33.649103229491075,
+      "longitude": -117.8422543883723,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 105,\nRoom 106,\nRoom 240,\nRoom 250"
+  },
+  {
+    "type": "restrooms",
+    "locationName": "Studio Four",
+    "coordinate": {
+      "latitude": 33.650340664255886,
+      "longitude": -117.84571555953684,
+      "latitudeDelta": 0.006,
+      "longitudeDelta": 0.006
+    },
+    "additionalDirections": "Room 108,\nRoom 110"
+  }
+]
