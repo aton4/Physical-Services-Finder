@@ -8,7 +8,7 @@
  * @format
  */
 
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {StyleSheet, View, TouchableOpacity, Image} from 'react-native';
 import {ListItem} from 'react-native-elements/dist/list/ListItem';
 
@@ -72,6 +72,8 @@ const App = () => {
   const [markerDetails, setMarkerDetails] = useState(markerObject);
   const [coords, setCoords] = useState(coordsList);
 
+  const mapRef: any = useRef<MapView>();
+
   const closeDropDown = () => {
     setRenderDropDown(false);
   };
@@ -125,7 +127,7 @@ const App = () => {
       case 'studyRooms':
         return require('./images/book.png');
       case 'origin':
-        return require('./images/water.png');
+        return require('./images/person.png');
     }
   };
 
@@ -134,7 +136,45 @@ const App = () => {
     destination: {latitude: number; longitude: number},
   ) => {
     setCoords([source, destination]);
+    centerMap();
   };
+
+  const centerMap = () => {
+    console.log('centermap', coords);
+    if (coords.length === 2) {
+      console.log(
+        `moving coordsAAA ${coords[0].latitude} ${coords[0].longitude}`,
+      );
+      if (mapRef.current)
+        mapRef.current.animateToCoordinate(
+          {
+            latitude: coords[0].latitude,
+            longitude: coords[0].longitude,
+          },
+          1000,
+        );
+    }
+  };
+
+  if (coords.length === 2) {
+    console.log(
+      `moving coordsBBB ${coords[0].latitude} ${coords[0].longitude}`,
+    );
+    if (mapRef.current)
+      mapRef.current.animateToRegion({
+        latitude: coords[0].latitude,
+        longitude: coords[0].longitude,
+        latitudeDelta: 0.006,
+        longitudeDelta: 0.006,
+      });
+    // mapRef.current.animateToCoordinate(
+    //   {
+    //     latitude: coords[0].latitude,
+    //     longitude: coords[0].longitude,
+    //   },
+    //   1000,
+    // );
+  }
 
   return (
     // <SomeComponent/>
@@ -152,6 +192,7 @@ const App = () => {
         <View style={mapstyles.container}>
           {/* Render our MapView */}
           <MapView
+            ref={cur => (mapRef.current = cur)}
             style={mapstyles.map}
             // specify our coordinates.
             mapType={'hybrid'}
@@ -212,6 +253,7 @@ const App = () => {
           removeMarkerDetails={removeMarkerDetails}
           updateCoords={updateCoords}
           selectMarkerIcon={selectMarkerIcon}
+          centerMap={centerMap}
         />
       )}
     </View>

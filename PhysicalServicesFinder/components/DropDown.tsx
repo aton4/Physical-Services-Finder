@@ -1,14 +1,21 @@
 import React, {useState, useRef, useEffect} from 'react';
-import {StyleSheet, View, SafeAreaView, FlatList, Text} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  SafeAreaView,
+  FlatList,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 
 const DropDown = (props: any) => {
   const renderItem = ({item}: {item: any}) => {
     return (
-      <Text
-        style={dropdownstyles.item}
+      <TouchableOpacity
+        style={dropdownstyles.button}
         onPress={() => props.changeDisplayedMarkers(item.refTitle)}>
-        {item.title}
-      </Text>
+        <Text style={dropdownstyles.item}>{item.title}</Text>
+      </TouchableOpacity>
     );
   };
 
@@ -29,42 +36,57 @@ const dropdownstyles = StyleSheet.create({
   container: {
     position: 'absolute',
     x: 0,
-    display: 'flex',
     width: '55%',
     backgroundColor: 'white',
     borderColor: 'grey',
     borderRightWidth: 3,
     borderBottomWidth: 3,
-    paddingBottom: 15,
+    borderRadius: 15,
   },
   header: {
-    marginLeft: 7,
+    paddingLeft: 7,
     fontSize: 20,
-    color: 'blue',
-    textShadowColor: 'purple',
-    textShadowRadius: 5,
-    textShadowOffset: {
-      width: 1,
-      height: 1,
-    },
+    color: 'black',
+    // textShadowColor: 'black',
+    // textShadowRadius: 5,
+    // textShadowOffset: {
+    //   width: 1,
+    //   height: 1,
+    // },
+    // textAlign: "center",
+    alignSelf: "center",
+    width: "90%",
+    padding: 5,
+    borderBottomWidth: 3,
+    borderBottomColor: 'black',
+    marginBottom: "5%",
   },
   list: {
-    display: 'flex',
     width: '100%',
-    alignItems: 'center',
-    backgroundColor: 'white',
+    // margin: '5%',
+  },
+  button: {
+    // margin: 5,
+    // fontSize: 15,
+    // color: 'black',
+    width: '75%',
+    borderColor: 'black',
+    borderWidth: 3,
+    borderRadius: 10,
+    alignSelf: 'center',
+    // padding: 5,
+    // alignItems: 'center',
+    backgroundColor: 'lightblue',
+    marginBottom: "5%",
   },
   item: {
-    display: 'flex',
     margin: 5,
     fontSize: 15,
-    color: 'blue',
-    textShadowColor: 'black',
-    textShadowRadius: 5,
-    textShadowOffset: {
-      width: 1,
-      height: 1,
-    },
+    fontWeight: 'bold',
+    color: 'black',
+    // width: '100%',
+    padding: 5,
+    alignSelf: 'center',
   },
 });
 

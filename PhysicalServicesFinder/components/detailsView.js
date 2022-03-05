@@ -25,7 +25,7 @@ const DetailsView = props => {
   const coords = `${markerObject.coordinate.latitude},${markerObject.coordinate.longitude}`;
   const [openDetails, setOpenDetails] = useState(true);
   const [source, setSource] = useState(null);
-  
+
   // used to open the details view if the details view is closed and the user
   // clicks on a different marker - displays the new marker information
   const d = useRef(markerObject);
@@ -34,14 +34,18 @@ const DetailsView = props => {
     setOpenDetails(true);
   }
 
+  const scrollRef = useRef();
+  const scrollToTop = () => {
+    scrollRef.current?.scrollTo({y: 0, animated: false});
+  };
+
   function onSwipeUp(gestureState) {
     setOpenDetails(true);
-    console.log('A');
   }
 
   function onSwipeDown(gestureState) {
     setOpenDetails(false);
-    console.log('B');
+    scrollToTop();
   }
 
   const selectMarkerIcon = serviceName => {
@@ -93,7 +97,7 @@ const DetailsView = props => {
       config={config}>
       <SafeAreaView
         style={openDetails ? styles.openedContainer : styles.closedContainer}>
-        <ScrollView>
+        <ScrollView ref={scrollRef} scrollEnabled={openDetails}>
           <Image
             style={styles.sliderline}
             source={require('../images/detailsline.png')}
@@ -105,14 +109,6 @@ const DetailsView = props => {
             />
             <Text style={styles.locationName}>{markerObject.locationName}</Text>
           </View>
-          <Image
-            style={styles.locationimage}
-            source={require('../images/ics.jpg')}
-          />
-          <Text style={styles.desc}>
-            Where exactly?{'\n\n'}
-            {markerObject.additionalDirections}
-          </Text>
           {!source ? (
             <Text style={styles.loadingButton}>Loading Directions...</Text>
           ) : null}
@@ -131,6 +127,7 @@ const DetailsView = props => {
                   },
                 );
                 setOpenDetails(false);
+                props.centerMap();
               }}>
               <Image
                 style={styles.directionsIcon}
@@ -139,8 +136,16 @@ const DetailsView = props => {
               <Text style={styles.directionsText}>Directions</Text>
             </TouchableOpacity>
           )}
+          <Image
+            style={styles.locationimage}
+            source={require('../images/ics.jpg')}
+          />
+          <Text style={styles.desc}>
+            Where exactly?{'\n\n'}
+            {markerObject.additionalDirections}
+          </Text>
           {/* need an empty view with some height to register scrollview to scroll */}
-          <View style={{height: 100}}></View>
+          <View style={{height: 500}}></View>
         </ScrollView>
       </SafeAreaView>
     </GestureRecognizer>
@@ -168,7 +173,7 @@ const styles = StyleSheet.create({
   openedContainer: {
     position: 'relative',
     // bottom: 0,
-    top: '10%',
+    top: '50%',
     // display: 'flex',
     width: '100%',
     height: '100%',
@@ -198,8 +203,9 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   locationimage: {
-    width: 300,
-    height: 300,
+    width: '50%',
+    height: 0,
+    paddingBottom: '50%',
   },
   desc: {
     fontSize: 20,
@@ -223,9 +229,9 @@ const styles = StyleSheet.create({
   },
   directionButton: {
     backgroundColor: 'white',
-    marginTop: '10%',
     marginLeft: 'auto',
     marginRight: 'auto',
+    marginBottom: '5%',
     paddingTop: 5,
     paddingBottom: 5,
     paddingLeft: 5,
@@ -249,7 +255,7 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: '10%',
+    marginBottom: '5%',
   },
   icon: {
     width: 75,
