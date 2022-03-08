@@ -146,13 +146,12 @@ const App = () => {
         `moving coordsAAA ${coords[0].latitude} ${coords[0].longitude}`,
       );
       if (mapRef.current)
-        mapRef.current.animateToCoordinate(
-          {
-            latitude: coords[0].latitude,
-            longitude: coords[0].longitude,
-          },
-          1000,
-        );
+        mapRef.current.animateToRegion({
+          latitude: coords[0].latitude,
+          longitude: coords[0].longitude,
+          latitudeDelta: 0.006,
+          longitudeDelta: 0.006,
+        });
     }
   };
 
